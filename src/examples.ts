@@ -16,8 +16,14 @@ menuItem.addModifier(menuItemFocusedModifier);
 
 const render = () =>
   (document.body.innerText = `
+  Block:
+
   ${menu.className}
   ${menu.selector}
+
+
+  Elements:
+  
   ${menuItem.className}
   ${menuItem.fullClassName}
   ${menuItem.selector}
@@ -26,6 +32,10 @@ const render = () =>
   ${searchBox.fullClassName}
   ${searchBox.selector}
   ${searchBox.fullSelector}
+
+
+  Modifier:
+
   ${menuItemActiveModifier.className}
   ${menuItemActiveModifier.selector}
 `);
