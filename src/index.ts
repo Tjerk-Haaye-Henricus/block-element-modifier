@@ -16,7 +16,7 @@ export class BEM_Block {
   }
 
   get selector() {
-    return `.${this.name}`;
+    return `.${this.className}`;
   }
 }
 
@@ -39,7 +39,7 @@ export class BEM_Element {
   }
 
   get className() {
-    return `${this.block.name}__${this.name}`;
+    return `${this.block.className}__${this.name}`;
   }
 
   get fullClassName() {
@@ -52,7 +52,7 @@ export class BEM_Element {
   }
 
   get selector() {
-    return `.${this.block.name}__${this.name}`;
+    return `.${this.className}`;
   }
 
   get fullSelector() {
