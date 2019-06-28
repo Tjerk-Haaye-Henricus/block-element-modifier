@@ -1,4 +1,4 @@
-class BEM_Block {
+export class BEM_Block {
   name: string;
   elements: BEM_Element[] = [];
   modifier: BEM_Modifier[] = [];
@@ -20,7 +20,7 @@ class BEM_Block {
   }
 }
 
-class BEM_Element {
+export class BEM_Element {
   name: string;
   modifier: BEM_Modifier[] = [];
   block: BEM_Block;
@@ -65,7 +65,7 @@ class BEM_Element {
   }
 }
 
-class BEM_Modifier {
+export class BEM_Modifier {
   name: string;
   parent: BEM_Block | BEM_Element;
 
@@ -82,27 +82,3 @@ class BEM_Modifier {
     return `.${this.parent.className}--${this.name}`;
   }
 }
-
-const menu = new BEM_Block("menu");
-const menuItem = new BEM_Element("item", menu);
-const searchBox = new BEM_Element("searchbpx", menu);
-const menuItemActiveModifier = new BEM_Modifier("active", menuItem);
-const menuItemFocusedModifier = new BEM_Modifier("focused", menuItem);
-
-menu.addElement(menuItem);
-menuItem.addModifier(menuItemActiveModifier);
-menuItem.addModifier(menuItemFocusedModifier);
-
-const render = () =>
-  (document.body.innerText = `
-  ${menu.className}
-  ${menu.selector}
-  ${menuItem.className}
-  ${menuItem.fullClassName}
-  ${menuItem.selector}
-  ${menuItem.fullSelector}
-  ${menuItemActiveModifier.className}
-  ${menuItemActiveModifier.selector}
-`);
-
-render();
